@@ -10,7 +10,7 @@ namespace BioscoopApp
         private int seatNr { get; set; }
         private bool isPremium { get; set; }
 
-        private MovieScreening movieScreening { get; set; }
+        public MovieScreening movieScreening { get; set; }
 
         public MovieTicket(MovieScreening movieScreening , bool isPremiumReservation , int seatRow, int seatNr   )
         {
@@ -31,14 +31,19 @@ namespace BioscoopApp
             return this.movieScreening.GetPricePerSeat();
         }
 
-        public string toString()
+        public MovieScreening GetMovieScreening()
         {
-            return $"Movie Ticket Details:\n" +
+            return this.movieScreening;
+        }
+
+        public override string ToString()
+        {
+            return $"\nMovie Ticket Details:\n" +
                     $"rowNr: {rowNr}\n" +
-                    $"seatNr: {seatNr:C}\n" +
+                    $"seatNr: {seatNr}\n" +
                     $"isPremium: {isPremium}\n" +
-                    $"priceTotal: {this.GetPrice()}\n" +
-                    $"Movie Screening: {movieScreening}";
+                    $"Movie Screening:\n {movieScreening}\n" +
+                    $"priceTotal: {this.GetPrice():C}\n";
         }
     }
 }

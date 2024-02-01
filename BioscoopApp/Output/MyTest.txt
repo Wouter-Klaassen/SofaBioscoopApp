@@ -1,2 +1,21 @@
-{}
-{}
+OrderNr: 1
+
+IsStudentOrder: False
+
+Movie Tickets:
+
+Movie Ticket Details:
+rowNr: 1
+seatNr: 1
+isPremium: False
+Movie Screening
+: Movie Screening Details:
+Date and Time: 12/25/2020 12:00:00 AM
+Price per Seat: $4.50
+Movie: Movie Details:
+Title: Angry Birds Movie
+No screenings available
+priceTotal: $4.50
+
+
+Total price of order: 4.5

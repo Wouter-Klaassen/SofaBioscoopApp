@@ -6,7 +6,7 @@ namespace BioscoopApp
 class MovieScreening
 {
     // Properties
-    private DateTime DateAndTime { get; set; }
+    public DateTime DateAndTime { get; set; }
     private double PricePerSeat { get; set; }
     private Movie Movie { get; set; }
 
@@ -23,6 +23,11 @@ class MovieScreening
     {
         return PricePerSeat;
     }
+
+    public DateTime GetDateAndTime()
+        {
+            return DateAndTime;
+        }
 
     // ToString method override
     public override string ToString()
