@@ -27,7 +27,7 @@ namespace BioscoopApp
 
         public double GetPrice()
         {
-
+            // kijken hoe we kunnen zorgen dat de premium hier toegevoegd wordt
             return this.movieScreening.GetPricePerSeat();
         }
 

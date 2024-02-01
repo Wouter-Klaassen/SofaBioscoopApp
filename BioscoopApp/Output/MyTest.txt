@@ -1,0 +1,115 @@
+OrderNr: 1
+IsStudentOrder: False
+
+Movie Ticket Details:
+rowNr: 1
+seatNr: 1
+isPremium: False
+Movie Screening:
+ Movie Screening Details:
+Date and Time: 2/3/2024 12:00:00 AM
+Price per Seat: $4.50
+Movie Details:
+Title: Angry Birds Movie
+
+priceTotal: $4.50
+
+
+Movie Ticket Details:
+rowNr: 1
+seatNr: 2
+isPremium: True
+Movie Screening:
+ Movie Screening Details:
+Date and Time: 2/3/2024 12:00:00 AM
+Price per Seat: $4.50
+Movie Details:
+Title: Angry Birds Movie
+
+priceTotal: $4.50
+
+
+Movie Ticket Details:
+rowNr: 1
+seatNr: 4
+isPremium: False
+Movie Screening:
+ Movie Screening Details:
+Date and Time: 2/3/2024 12:00:00 AM
+Price per Seat: $4.50
+Movie Details:
+Title: Angry Birds Movie
+
+priceTotal: $4.50
+
+
+Movie Ticket Details:
+rowNr: 1
+seatNr: 5
+isPremium: False
+Movie Screening:
+ Movie Screening Details:
+Date and Time: 2/3/2024 12:00:00 AM
+Price per Seat: $4.50
+Movie Details:
+Title: Angry Birds Movie
+
+priceTotal: $4.50
+
+
+Movie Ticket Details:
+rowNr: 1
+seatNr: 6
+isPremium: False
+Movie Screening:
+ Movie Screening Details:
+Date and Time: 2/3/2024 12:00:00 AM
+Price per Seat: $4.50
+Movie Details:
+Title: Angry Birds Movie
+
+priceTotal: $4.50
+
+
+Movie Ticket Details:
+rowNr: 1
+seatNr: 7
+isPremium: False
+Movie Screening:
+ Movie Screening Details:
+Date and Time: 2/3/2024 12:00:00 AM
+Price per Seat: $4.50
+Movie Details:
+Title: Angry Birds Movie
+
+priceTotal: $4.50
+
+
+Movie Ticket Details:
+rowNr: 1
+seatNr: 6
+isPremium: False
+Movie Screening:
+ Movie Screening Details:
+Date and Time: 2/1/2024 12:00:00 AM
+Price per Seat: $4.50
+Movie Details:
+Title: Angry Birds Movie
+
+priceTotal: $4.50
+
+
+Movie Ticket Details:
+rowNr: 1
+seatNr: 7
+isPremium: False
+Movie Screening:
+ Movie Screening Details:
+Date and Time: 2/1/2024 12:00:00 AM
+Price per Seat: $4.50
+Movie Details:
+Title: Angry Birds Movie
+
+priceTotal: $4.50
+
+TotalCost: 31.5

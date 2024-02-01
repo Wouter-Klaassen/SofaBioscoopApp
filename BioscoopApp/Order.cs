@@ -57,14 +57,15 @@ namespace BioscoopApp
                         {
                             toAdd += 3;
                         }
+                        total += toAdd;
                         count += 1;
                     }
                 }
                 if (count >= 6)
                 {
-                    toAdd = toAdd * 0.9;
+                    total = total * 0.9;
                 }
-                total = toAdd + SecondFree(half);
+                total = total + SecondFree(half);
             }
 
 
@@ -76,7 +77,7 @@ namespace BioscoopApp
             double total = 0;
             double toAdd = 0;
             bool second = false;
-            foreach (var MovieTicket in movieTickets)
+            foreach (var MovieTicket in list)
             {
                 toAdd = MovieTicket.GetPrice();
                 if (MovieTicket.isPremiumTicket())
@@ -106,7 +107,7 @@ namespace BioscoopApp
         public bool IsWeekend(DateTime dateTime)
         {
             DayOfWeek dayOfWeek = dateTime.DayOfWeek;
-            return dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday;
+            return dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday || dayOfWeek == DayOfWeek.Friday;
         }
 
         public void export(TicketExportFormat exportFormat )
@@ -128,6 +129,7 @@ namespace BioscoopApp
                             {
                                 sw.WriteLine(item.ToString());
                             }
+                            sw.WriteLine("TotalCost: " + calculatePrice());
                             break;
 
                         case JSON:
