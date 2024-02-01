@@ -1,0 +1,14 @@
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\obj\Debug\net6.0\BioscoopApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\obj\Debug\net6.0\BioscoopApp.AssemblyInfoInputs.cache
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\obj\Debug\net6.0\BioscoopApp.AssemblyInfo.cs
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\obj\Debug\net6.0\BioscoopApp.csproj.CoreCompileInputs.cache
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\bin\Debug\net6.0\BioscoopApp.exe
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\bin\Debug\net6.0\BioscoopApp.deps.json
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\bin\Debug\net6.0\BioscoopApp.runtimeconfig.json
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\bin\Debug\net6.0\BioscoopApp.dll
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\bin\Debug\net6.0\BioscoopApp.pdb
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\obj\Debug\net6.0\BioscoopApp.dll
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\obj\Debug\net6.0\refint\BioscoopApp.dll
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\obj\Debug\net6.0\BioscoopApp.pdb
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\obj\Debug\net6.0\BioscoopApp.genruntimeconfig.cache
+C:\School\Jaar-3\Sofa\BioscoopApp\BioscoopApp\BioscoopApp\obj\Debug\net6.0\ref\BioscoopApp.dll
