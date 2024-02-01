@@ -5,10 +5,10 @@ namespace BioscoopApp
 {
 class MovieScreening
 {
-    // Properties
-    private DateTime DateAndTime { get; set; }
-    private double PricePerSeat { get; set; }
-    private Movie Movie { get; set; }
+        // Properties
+    public DateTime DateAndTime { get; private set; }
+    public double PricePerSeat { get; private set; }
+    public Movie Movie { get; private set; }
 
     // Constructor
     public MovieScreening(DateTime dateAndTime, double pricePerSeat, Movie movie)
@@ -28,9 +28,9 @@ class MovieScreening
     public override string ToString()
     {
         return $"Movie Screening Details:\n" +
-               $"Date and Time: {DateAndTime}\n" +
-               $"Price per Seat: {PricePerSeat:C}\n" +
-               $"Movie: {Movie}";
+               $"Date and Time: {this.DateAndTime}\n" +
+               $"Price per Seat: {this.PricePerSeat:C}\n" +
+               $"{this.Movie}";
     }
 }    
 }

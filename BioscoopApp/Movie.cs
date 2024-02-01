@@ -7,9 +7,9 @@ namespace BioscoopApp
 
 class Movie
 {
-    // Properties
-    private string Title { get; set; }
-    private List<MovieScreening> MovieScreenings { get; set; } = new List<MovieScreening>();
+        // Properties
+    public string Title { get; private set; }
+    public List<MovieScreening> MovieScreenings { get; private set; } = new List<MovieScreening>();
 
     // Constructor
     public Movie(string title)
@@ -26,20 +26,8 @@ class Movie
     // ToString method override
     public override string ToString()
     {
-        string screeningsInfo = "No screenings available";
-
-        if (MovieScreenings.Count > 0)
-        {
-            screeningsInfo = "Screenings:\n";
-            foreach (var screening in MovieScreenings)
-            {
-                screeningsInfo += $"{screening}\n";
-            }
-        }
-
-        return $"Movie Details:\n" +
-               $"Title: {Title}\n" +
-               $"{screeningsInfo}";
+            return $"Movie Details:\n" +
+                   $"Title: {this.Title}\n";
     }
 }
 }

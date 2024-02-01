@@ -4,15 +4,17 @@ using static BioscoopApp.TicketExportFormat;
 using System;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
+using Microsoft.VisualBasic;
 
 namespace BioscoopApp
 {
 
     class Order
     {
-        private int orderNr { get; set; }
-        private bool isStudentOrder { get; set; }
-        private List<MovieTicket> movieTickets { get; set; } = new List<MovieTicket>();
+        public int orderNr { get; private set; }
+        public bool isStudentOrder { get; private set; }
+        public List<MovieTicket> movieTickets { get; set; } = new List<MovieTicket>();
 
         public Order( int orderNr , bool isStudentOrder  )
         {
@@ -25,7 +27,7 @@ namespace BioscoopApp
             return this.orderNr;
         }
 
-        public void addSeatReservation(MovieTicket ticket  )
+        public void addSeatReservation(MovieTicket ticket)
         {
             this.movieTickets.Add(ticket);
         }
@@ -54,19 +56,38 @@ namespace BioscoopApp
                     switch (exportFormat)
                     {
                         case PLAINTEXT:
-                            foreach (var MovieTicket in movieTickets)
+
+                            sw.WriteLine("OrderNr: " + this.orderNr);
+                            sw.WriteLine("IsStudentOrder: " + this.isStudentOrder);
+                            foreach (var item in movieTickets)
                             {
-                                sw.WriteLine("OrderNr: " + this.orderNr);
-                                sw.WriteLine("\nIsStudentOrder: " + this.isStudentOrder);
-                                sw.WriteLine("\nMovie Tickets: " + MovieTicket.ToString());
+                                sw.WriteLine(item.ToString());
                             }
                             break;
+
                         case JSON:
-                            foreach (var MovieTicket in movieTickets)
+
+                            var aList = this.movieTickets.Select(item => new
                             {
-                                sw.WriteLine(JsonSerializer.Serialize(this));
-                                sw.WriteLine(JsonSerializer.Serialize(MovieTicket)); 
-                        }
+                                rowNr = item.rowNr,
+                                seatNr = item.seatNr,
+                                isPremium = item.isPremium,
+                                dateAndTime = item.movieScreening.DateAndTime,
+                                pricePerSeat = item.movieScreening.GetPricePerSeat(),
+                                movieTitle = item.movieScreening.Movie.Title,
+                            }).ToList();
+
+                            var Result = new
+                            {
+                                orderNr = this.orderNr,
+                                isStudentOrder = this.isStudentOrder,
+                                tickets = new
+                                {
+                                    items = JsonSerializer.Serialize(aList),
+                                }
+
+                            };
+                            sw.WriteLine(Result);
                             break;
 
                     }
