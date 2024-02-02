@@ -32,54 +32,51 @@ namespace BioscoopApp
             this.movieTickets.Add(ticket);
         }
 
-        public double calculatePrice()
+        public decimal calculatePrice()
         {
-            double total = 0;
-            double toAdd = 0;
+            decimal total = 0;
+            decimal toAdd = 0;
             int count = 0;
             List<MovieTicket> half = new List<MovieTicket>();
-            if (isStudentOrder)
+            foreach (var MovieTicket in movieTickets)
             {
-                total = SecondFree(this.movieTickets);
+                // niet studenten hebben doordeweeks ook altijd de 2e gratis,
+                // worden toegevoegd aan een list om naar de SecondFree methode te sturen
+                if (!IsWeekend(MovieTicket.movieScreening.DateAndTime) || this.isStudentOrder)
+                {
+                    half.Add(MovieTicket);
+                }
+                else
+                {
+                    // prijs van het ticket word opgehaald uit MovieTicket en daarna toegevoegd aan total
+                    toAdd = MovieTicket.GetPrice();
+                    // als het een premium ticket is, kost het 3 dollar extra (geen student)
+                    if (MovieTicket.isPremiumTicket())
+                    {
+                        toAdd += 3;
+                    }
+                    total += toAdd;
+                    count += 1;
+                }
             }
-            else
+            // als er 6 of meer (niet 2e gratis) tickets besteld zijn krijg je hier 10% korting op
+            if (count >= 6)
             {
-                foreach (var MovieTicket in movieTickets)
-                {
-                    if (!IsWeekend(MovieTicket.movieScreening.DateAndTime))
-                    {
-                        half.Add(MovieTicket);
-                    }
-                    else
-                    {
-                        toAdd = MovieTicket.GetPrice();
-                        if (MovieTicket.isPremiumTicket())
-                        {
-                            toAdd += 3;
-                        }
-                        total += toAdd;
-                        count += 1;
-                    }
-                }
-                if (count >= 6)
-                {
-                    total = total * 0.9;
-                }
-                total = total + SecondFree(half);
+                total = total * 0.9M;
             }
-
-
+            total = total + SecondFree(half);
             return total;
         }
 
-        public double SecondFree(List<MovieTicket> list)
+        public decimal SecondFree(List<MovieTicket> list)
         {
-            double total = 0;
-            double toAdd = 0;
+            decimal total = 0;
+            decimal toAdd = 0;
             bool second = false;
             foreach (var MovieTicket in list)
             {
                 toAdd = MovieTicket.GetPrice();
+                // als het een premium ticket is, kost het 2 (student) of 3 (geen student) dollar extra 
                 if (MovieTicket.isPremiumTicket())
                 {
                     if (isStudentOrder)
@@ -104,6 +101,7 @@ namespace BioscoopApp
             }
             return total;
         }
+
         public bool IsWeekend(DateTime dateTime)
         {
             DayOfWeek dayOfWeek = dateTime.DayOfWeek;
@@ -113,7 +111,7 @@ namespace BioscoopApp
         public void export(TicketExportFormat exportFormat )
         {
 
-            string path = @"C:\Users\thoma\OneDrive\Documenten\github\SofaBioscoopApp\BioscoopApp\Output\MyTest.txt";
+            string path = @"C:\Output\MyTest.txt";
             if (!File.Exists(path))
             {
                 // Create a file to write to.
@@ -129,7 +127,7 @@ namespace BioscoopApp
                             {
                                 sw.WriteLine(item.ToString());
                             }
-                            sw.WriteLine("TotalCost: " + calculatePrice());
+                            sw.WriteLine("TotalCost: $" + calculatePrice());
                             break;
 
                         case JSON:
@@ -151,7 +149,8 @@ namespace BioscoopApp
                                 tickets = new
                                 {
                                     items = JsonSerializer.Serialize(aList),
-                                }
+                                },
+                                totalPrice = calculatePrice()
 
                             };
                             sw.WriteLine(Result);

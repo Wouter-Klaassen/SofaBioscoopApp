@@ -7,11 +7,11 @@ class MovieScreening
 {
         // Properties
     public DateTime DateAndTime { get; private set; }
-    public double PricePerSeat { get; private set; }
+    public decimal PricePerSeat { get; private set; }
     public Movie Movie { get; private set; }
 
     // Constructor
-    public MovieScreening(DateTime dateAndTime, double pricePerSeat, Movie movie)
+    public MovieScreening(DateTime dateAndTime, decimal pricePerSeat, Movie movie)
     {
         DateAndTime = dateAndTime;
         PricePerSeat = pricePerSeat;
@@ -19,7 +19,7 @@ class MovieScreening
     }
 
     // Method to get the price per seat
-    public double GetPricePerSeat()
+    public decimal GetPricePerSeat()
     {
         return PricePerSeat;
     }

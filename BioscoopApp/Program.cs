@@ -6,8 +6,8 @@ class Program
     {
         Order firstOrder = new Order(1, false);
         Movie AngryBirdsMovie = new Movie("Angry Birds Movie");
-        MovieScreening movieScreeningOne = new MovieScreening(new DateTime(2024, 02, 03), 4.5, AngryBirdsMovie);
-        MovieScreening movieScreeningTwo = new MovieScreening(new DateTime(2024, 02, 01), 4.5, AngryBirdsMovie);
+        MovieScreening movieScreeningOne = new MovieScreening(new DateTime(2024, 02, 03), 4.5M, AngryBirdsMovie);
+        MovieScreening movieScreeningTwo = new MovieScreening(new DateTime(2024, 02, 01), 4.5M, AngryBirdsMovie);
         MovieTicket ticket = new MovieTicket(movieScreeningOne, false, 1, 1);
         MovieTicket ticket2 = new MovieTicket(movieScreeningOne, true, 1, 2);
         MovieTicket ticket3 = new MovieTicket(movieScreeningOne, false, 1, 4);

@@ -25,7 +25,7 @@ namespace BioscoopApp
             return this.isPremium;
         }
 
-        public double GetPrice()
+        public decimal GetPrice()
         {
             // kijken hoe we kunnen zorgen dat de premium hier toegevoegd wordt
             return this.movieScreening.GetPricePerSeat();
@@ -38,12 +38,18 @@ namespace BioscoopApp
 
         public override string ToString()
         {
+            String premiumExtraCharge = "";
+            if (this.isPremium)
+            {
+                premiumExtraCharge = " (additional premium charges will be added)";
+            }
             return $"\nMovie Ticket Details:\n" +
-                    $"rowNr: {rowNr}\n" +
-                    $"seatNr: {seatNr}\n" +
-                    $"isPremium: {isPremium}\n" +
-                    $"Movie Screening:\n {movieScreening}\n" +
-                    $"priceTotal: {this.GetPrice():C}\n";
+                    $"rowNr: {this.rowNr}\n" +
+                    $"seatNr: {this.seatNr}\n" +
+                    $"isPremium: {this.isPremium}\n" +
+                    $"Movie Screening:\n {this.movieScreening}\n" +
+                    $"price: {this.GetPrice():C}" +
+                    $"{premiumExtraCharge}\n";
         }
     }
 }
