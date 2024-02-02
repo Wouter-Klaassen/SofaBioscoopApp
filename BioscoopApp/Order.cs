@@ -40,9 +40,12 @@ namespace BioscoopApp
             List<MovieTicket> half = new List<MovieTicket>();
             foreach (var MovieTicket in movieTickets)
             {
+                DayOfWeek dayOfWeek = MovieTicket.movieScreening.DateAndTime.DayOfWeek;
+                bool isWeekend = dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday || dayOfWeek == DayOfWeek.Friday;
+                // studenten hebben altijd de tweede ticket gratis
                 // niet studenten hebben doordeweeks ook altijd de 2e gratis,
                 // worden toegevoegd aan een list om naar de SecondFree methode te sturen
-                if (!IsWeekend(MovieTicket.movieScreening.DateAndTime) || this.isStudentOrder)
+                if (!isWeekend || this.isStudentOrder)
                 {
                     half.Add(MovieTicket);
                 }
@@ -100,12 +103,6 @@ namespace BioscoopApp
                 total += toAdd;
             }
             return total;
-        }
-
-        public bool IsWeekend(DateTime dateTime)
-        {
-            DayOfWeek dayOfWeek = dateTime.DayOfWeek;
-            return dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday || dayOfWeek == DayOfWeek.Friday;
         }
 
         public void export(TicketExportFormat exportFormat )
