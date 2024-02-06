@@ -3,7 +3,7 @@ using System;
 namespace BioscoopApp
 {
 
-    class MovieTicket
+    public class MovieTicket
     {
 
         public int rowNr { get; private set; }

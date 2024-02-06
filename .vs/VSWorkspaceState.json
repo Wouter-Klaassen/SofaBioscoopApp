@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BioscoopApp"
+    "\\BioscoopApp",
+    "\\BioscoopApp\\bin",
+    "\\BioscoopApp\\obj",
+    "\\BioscoopApp\\Output",
+    "\\Output"
   ],
-  "SelectedNode": "\\BioscoopApp\\MovieScreening.cs",
+  "SelectedNode": "\\BioscoopApp\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

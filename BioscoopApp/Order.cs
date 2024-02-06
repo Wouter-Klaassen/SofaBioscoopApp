@@ -10,7 +10,7 @@ using Microsoft.VisualBasic;
 namespace BioscoopApp
 {
 
-    class Order
+    public class Order
     {
         public int orderNr { get; private set; }
         public bool isStudentOrder { get; private set; }

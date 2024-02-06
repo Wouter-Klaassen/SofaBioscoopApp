@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace BioscoopApp
 {
 
-class Movie
+    public class Movie
 {
         // Properties
     public string Title { get; private set; }

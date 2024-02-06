@@ -3,7 +3,7 @@ using System;
 
 namespace BioscoopApp
 {
-class MovieScreening
+    public class MovieScreening
 {
         // Properties
     public DateTime DateAndTime { get; private set; }
