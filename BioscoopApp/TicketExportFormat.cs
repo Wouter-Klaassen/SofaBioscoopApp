@@ -1,6 +1,6 @@
 namespace BioscoopApp
 {
-enum TicketExportFormat {
+public enum TicketExportFormat {
 
     PLAINTEXT,
     JSON

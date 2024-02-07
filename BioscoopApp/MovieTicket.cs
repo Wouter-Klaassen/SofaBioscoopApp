@@ -3,7 +3,7 @@ using System;
 namespace BioscoopApp
 {
 
-    class MovieTicket
+    public class MovieTicket
     {
 
         public int rowNr { get; private set; }
@@ -25,20 +25,31 @@ namespace BioscoopApp
             return this.isPremium;
         }
 
-        public double GetPrice()
+        public decimal GetPrice()
         {
-
+            // kijken hoe we kunnen zorgen dat de premium hier toegevoegd wordt
             return this.movieScreening.GetPricePerSeat();
+        }
+
+        public MovieScreening GetMovieScreening()
+        {
+            return this.movieScreening;
         }
 
         public override string ToString()
         {
-            return $"Movie Ticket Details:\n" +
+            String premiumExtraCharge = "";
+            if (this.isPremium)
+            {
+                premiumExtraCharge = " (additional premium charges will be added)";
+            }
+            return $"\nMovie Ticket Details:\n" +
                     $"rowNr: {this.rowNr}\n" +
                     $"seatNr: {this.seatNr}\n" +
                     $"isPremium: {this.isPremium}\n" +
-                    $"priceTotal: {this.GetPrice():C}\n" +
-                    $"{this.movieScreening}";
+                    $"Movie Screening:\n {this.movieScreening}\n" +
+                    $"price: {this.GetPrice():C}" +
+                    $"{premiumExtraCharge}\n";
         }
     }
 }
