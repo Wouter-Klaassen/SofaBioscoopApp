@@ -6788,19 +6788,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thoma\\.nuget\\packages\\": {}
+    "C:\\Users\\gnome\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\thoma\\OneDrive\\Documenten\\github\\SofaBioscoopApp\\BioscoopAppTest\\BioscoopAppTest.csproj",
+      "projectUniqueName": "C:\\School\\Jaar-3\\Sofa\\BioscoopApp\\BioscoopApp\\BioscoopAppTest\\BioscoopAppTest.csproj",
       "projectName": "BioscoopAppTest",
-      "projectPath": "C:\\Users\\thoma\\OneDrive\\Documenten\\github\\SofaBioscoopApp\\BioscoopAppTest\\BioscoopAppTest.csproj",
-      "packagesPath": "C:\\Users\\thoma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\thoma\\OneDrive\\Documenten\\github\\SofaBioscoopApp\\BioscoopAppTest\\obj\\",
+      "projectPath": "C:\\School\\Jaar-3\\Sofa\\BioscoopApp\\BioscoopApp\\BioscoopAppTest\\BioscoopAppTest.csproj",
+      "packagesPath": "C:\\Users\\gnome\\.nuget\\packages\\",
+      "outputPath": "C:\\School\\Jaar-3\\Sofa\\BioscoopApp\\BioscoopApp\\BioscoopAppTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\thoma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gnome\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6814,8 +6814,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\thoma\\OneDrive\\Documenten\\github\\SofaBioscoopApp\\BioscoopApp\\BioscoopApp.csproj": {
-              "projectPath": "C:\\Users\\thoma\\OneDrive\\Documenten\\github\\SofaBioscoopApp\\BioscoopApp\\BioscoopApp.csproj"
+            "C:\\School\\Jaar-3\\Sofa\\BioscoopApp\\BioscoopApp\\BioscoopApp\\BioscoopApp.csproj": {
+              "projectPath": "C:\\School\\Jaar-3\\Sofa\\BioscoopApp\\BioscoopApp\\BioscoopApp\\BioscoopApp.csproj"
             }
           }
         }
@@ -6863,7 +6863,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

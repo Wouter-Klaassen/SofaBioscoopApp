@@ -12,40 +12,40 @@ namespace BioscoopApp
 
     public class Order
     {
-        public int orderNr { get; private set; }
-        public bool isStudentOrder { get; private set; }
-        public List<MovieTicket> movieTickets { get; set; } = new List<MovieTicket>();
+        public int OrderNr { get; private set; }
+        public bool IsStudentOrder { get; private set; }
+        public List<MovieTicket> MovieTickets { get; set; } = new List<MovieTicket>();
 
         public Order( int orderNr , bool isStudentOrder  )
         {
-            this.isStudentOrder = isStudentOrder;
-            this.orderNr = orderNr;
+            this.IsStudentOrder = isStudentOrder;
+            this.OrderNr = orderNr;
         }
 
-        public int getOrder()
+        public int GetOrder()
         {
-            return this.orderNr;
+            return this.OrderNr;
         }
 
-        public void addSeatReservation(MovieTicket ticket)
+        public void AddSeatReservation(MovieTicket ticket)
         {
-            this.movieTickets.Add(ticket);
+            this.MovieTickets.Add(ticket);
         }
 
-        public decimal calculatePrice()
+        public decimal CalculatePrice()
         {
             decimal total = 0;
             decimal toAdd = 0;
             int count = 0;
             List<MovieTicket> half = new List<MovieTicket>();
-            foreach (var MovieTicket in movieTickets)
+            foreach (var MovieTicket in MovieTickets)
             {
-                DayOfWeek dayOfWeek = MovieTicket.movieScreening.DateAndTime.DayOfWeek;
+                DayOfWeek dayOfWeek = MovieTicket.MovieScreening.DateAndTime.DayOfWeek;
                 bool isWeekend = dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday || dayOfWeek == DayOfWeek.Friday;
                 // studenten hebben altijd de tweede ticket gratis
                 // niet studenten hebben doordeweeks ook altijd de 2e gratis,
                 // worden toegevoegd aan een list om naar de SecondFree methode te sturen
-                if (!isWeekend || this.isStudentOrder)
+                if (!isWeekend || this.IsStudentOrder)
                 {
                     half.Add(MovieTicket);
                 }
@@ -54,7 +54,7 @@ namespace BioscoopApp
                     // prijs van het ticket word opgehaald uit MovieTicket en daarna toegevoegd aan total
                     toAdd = MovieTicket.GetPrice();
                     // als het een premium ticket is, kost het 3 dollar extra (geen student)
-                    if (MovieTicket.isPremiumTicket())
+                    if (MovieTicket.IsPremiumTicket())
                     {
                         toAdd += 3;
                     }
@@ -80,9 +80,9 @@ namespace BioscoopApp
             {
                 toAdd = MovieTicket.GetPrice();
                 // als het een premium ticket is, kost het 2 (student) of 3 (geen student) dollar extra 
-                if (MovieTicket.isPremiumTicket())
+                if (MovieTicket.IsPremiumTicket())
                 {
-                    if (isStudentOrder)
+                    if (IsStudentOrder)
                     {
                         toAdd += 2;
                     }
@@ -105,7 +105,7 @@ namespace BioscoopApp
             return total;
         }
 
-        public void export(TicketExportFormat exportFormat )
+        public void Export(TicketExportFormat exportFormat )
         {
 
             string path = @"C:\Output\MyTest.txt";
@@ -118,36 +118,36 @@ namespace BioscoopApp
                     {
                         case PLAINTEXT:
 
-                            sw.WriteLine("OrderNr: " + this.orderNr);
-                            sw.WriteLine("IsStudentOrder: " + this.isStudentOrder);
-                            foreach (var item in movieTickets)
+                            sw.WriteLine("OrderNr: " + this.OrderNr);
+                            sw.WriteLine("IsStudentOrder: " + this.IsStudentOrder);
+                            foreach (var item in MovieTickets)
                             {
                                 sw.WriteLine(item.ToString());
                             }
-                            sw.WriteLine("TotalCost: $" + calculatePrice());
+                            sw.WriteLine("TotalCost: $" + CalculatePrice());
                             break;
 
                         case JSON:
 
-                            var aList = this.movieTickets.Select(item => new
+                            var aList = this.MovieTickets.Select(item => new
                             {
-                                rowNr = item.rowNr,
-                                seatNr = item.seatNr,
-                                isPremium = item.isPremium,
-                                dateAndTime = item.movieScreening.DateAndTime,
-                                pricePerSeat = item.movieScreening.GetPricePerSeat(),
-                                movieTitle = item.movieScreening.Movie.Title,
+                                rowNr = item.RowNr,
+                                seatNr = item.SeatNr,
+                                isPremium = item.IsPremium,
+                                dateAndTime = item.MovieScreening.DateAndTime,
+                                pricePerSeat = item.MovieScreening.GetPricePerSeat(),
+                                movieTitle = item.MovieScreening.Movie.Title,
                             }).ToList();
 
                             var Result = new
                             {
-                                orderNr = this.orderNr,
-                                isStudentOrder = this.isStudentOrder,
+                                orderNr = this.OrderNr,
+                                isStudentOrder = this.IsStudentOrder,
                                 tickets = new
                                 {
                                     items = JsonSerializer.Serialize(aList),
                                 },
-                                totalPrice = calculatePrice()
+                                totalPrice = CalculatePrice()
 
                             };
                             sw.WriteLine(Result);

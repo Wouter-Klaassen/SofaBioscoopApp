@@ -6,48 +6,48 @@ namespace BioscoopApp
     public class MovieTicket
     {
 
-        public int rowNr { get; private set; }
-        public int seatNr { get; private set; }
-        public bool isPremium { get; private set; }
+        public int RowNr { get; private set; }
+        public int SeatNr { get; private set; }
+        public bool IsPremium { get; private set; }
 
-        public MovieScreening movieScreening { get; private set; }
+        public MovieScreening MovieScreening { get; private set; }
 
         public MovieTicket(MovieScreening movieScreening , bool isPremiumReservation , int seatRow, int seatNr   )
         {
-            this.rowNr = seatRow;
-            this.seatNr = seatNr;
-            this.isPremium = isPremiumReservation;
-            this.movieScreening = movieScreening;
+            this.RowNr = seatRow;
+            this.SeatNr = seatNr;
+            this.IsPremium = isPremiumReservation;
+            this.MovieScreening = movieScreening;
         }
 
-        public bool isPremiumTicket()
+        public bool IsPremiumTicket()
         {
-            return this.isPremium;
+            return this.IsPremium;
         }
 
         public decimal GetPrice()
         {
             // kijken hoe we kunnen zorgen dat de premium hier toegevoegd wordt
-            return this.movieScreening.GetPricePerSeat();
+            return this.MovieScreening.GetPricePerSeat();
         }
 
         public MovieScreening GetMovieScreening()
         {
-            return this.movieScreening;
+            return this.MovieScreening;
         }
 
         public override string ToString()
         {
             String premiumExtraCharge = "";
-            if (this.isPremium)
+            if (this.IsPremium)
             {
                 premiumExtraCharge = " (additional premium charges will be added)";
             }
             return $"\nMovie Ticket Details:\n" +
-                    $"rowNr: {this.rowNr}\n" +
-                    $"seatNr: {this.seatNr}\n" +
-                    $"isPremium: {this.isPremium}\n" +
-                    $"Movie Screening:\n {this.movieScreening}\n" +
+                    $"rowNr: {this.RowNr}\n" +
+                    $"seatNr: {this.SeatNr}\n" +
+                    $"isPremium: {this.IsPremium}\n" +
+                    $"Movie Screening:\n {this.MovieScreening}\n" +
                     $"price: {this.GetPrice():C}" +
                     $"{premiumExtraCharge}\n";
         }

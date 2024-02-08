@@ -16,14 +16,14 @@ public class Program
         MovieTicket ticket6 = new MovieTicket(movieScreeningOne, false, 1, 7);
         MovieTicket ticket7 = new MovieTicket(movieScreeningTwo, false, 1, 6);
         MovieTicket ticket8 = new MovieTicket(movieScreeningTwo, false, 1, 7);
-        firstOrder.addSeatReservation(ticket);
-        firstOrder.addSeatReservation(ticket2);
-        firstOrder.addSeatReservation(ticket3);
-        firstOrder.addSeatReservation(ticket4);
-        firstOrder.addSeatReservation(ticket5);
-        firstOrder.addSeatReservation(ticket6);
-        firstOrder.addSeatReservation(ticket7);
-        firstOrder.addSeatReservation(ticket8);
-        firstOrder.export(TicketExportFormat.PLAINTEXT);
+        firstOrder.AddSeatReservation(ticket);
+        firstOrder.AddSeatReservation(ticket2);
+        firstOrder.AddSeatReservation(ticket3);
+        firstOrder.AddSeatReservation(ticket4);
+        firstOrder.AddSeatReservation(ticket5);
+        firstOrder.AddSeatReservation(ticket6);
+        firstOrder.AddSeatReservation(ticket7);
+        firstOrder.AddSeatReservation(ticket8);
+        firstOrder.Export(TicketExportFormat.PLAINTEXT);
     }
 }
