@@ -1,5 +1,9 @@
 ﻿using BioscoopApp;
 using System;
+
+namespace Program
+{
+
 public class Program
 {
     static void Main(string[] args)
@@ -26,4 +30,5 @@ public class Program
         firstOrder.AddSeatReservation(ticket8);
         firstOrder.Export(TicketExportFormat.PLAINTEXT);
     }
+}
 }
